@@ -18,7 +18,7 @@ compatibility_date = "2024-12-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "line-lark-db"
-database_id = "YOUR_D1_DATABASE_ID"  # ← 作成後に置き換え
+database_id = "e5362c3d-03a3-4e38-be2b-1a90ce162285"  # ← 作成後に置き換え
 
 # KV（配信スケジュール・一時キャッシュ）
 # 作成コマンド: wrangler kv namespace create LINE_LARK_KV
