@@ -1,0 +1,31 @@
+name = "line-lark-hub"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+# ========================================
+# 環境変数（Secrets は wrangler secret put で設定）
+# LINE_CHANNEL_SECRET   → wrangler secret put LINE_CHANNEL_SECRET
+# LINE_CHANNEL_TOKEN    → wrangler secret put LINE_CHANNEL_TOKEN
+# LARK_APP_ID           → wrangler secret put LARK_APP_ID
+# LARK_APP_SECRET       → wrangler secret put LARK_APP_SECRET
+# LARK_BOT_WEBHOOK_URL  → wrangler secret put LARK_BOT_WEBHOOK_URL
+# LARK_BASE_APP_TOKEN   → wrangler secret put LARK_BASE_APP_TOKEN
+# LARK_BASE_TABLE_ID    → wrangler secret put LARK_BASE_TABLE_ID
+# ========================================
+
+# D1 データベース（ユーザー情報・ログ）
+# 作成コマンド: wrangler d1 create line-lark-db
+[[d1_databases]]
+binding = "DB"
+database_name = "line-lark-db"
+database_id = "YOUR_D1_DATABASE_ID"  # ← 作成後に置き換え
+
+# KV（配信スケジュール・一時キャッシュ）
+# 作成コマンド: wrangler kv namespace create LINE_LARK_KV
+[[kv_namespaces]]
+binding = "KV"
+id = "YOUR_KV_NAMESPACE_ID"  # ← 作成後に置き換え
+
+# Cron Triggers（Phase 3 で使用：ステップ配信用）
+# [triggers]
+# crons = ["*/5 * * * *"]
